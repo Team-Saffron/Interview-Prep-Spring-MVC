@@ -67,16 +67,18 @@
       
 
       <h4>Ask Query:</h4>
-      <form role="form" method = "post" action = "/discuss">
+      
+      <h4>${errorMessage}</h4>
+      <form role="form" method = "post" action = "/InterviewPrep/discuss.htm">
           
         <div class="form-group">
             <label for="commentHeading">Heading:</label>
-            <input type="text" class="form-control" id="commenHeading">
+            <input type="text" required class="form-control" id="commenHeading" name = "heading">
         </div>
           
         <div class="form-group">
           <label for="content">Query:</label>
-          <textarea class="form-control" rows="15" required id = "content"></textarea>
+          <textarea class="form-control" rows="15" required id = "content" name = "content"></textarea>
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
