@@ -5,6 +5,8 @@
  */
 package controllers;
 
+import MyPackages.Comment;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +23,14 @@ public class Discuss {
  
     @RequestMapping(method = RequestMethod.GET)
     public String getDiscussionPage(ModelMap modelMap) {
-       // System.out.println("on method");
-        //modelMap.put("printme", "Hello Spring !!");
         return "discuss";
     }
+    
+    @RequestMapping(method = RequestMethod.POST)
+    public String postComment(ModelMap modelMap) {
+        
+        return "discuss";
+    }
+    
+    
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>dashboard</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -105,6 +105,15 @@
            <div class="row" style=";margin-top:3%;">
                <center><h4>Problems Solved</h4></center>
            </div>
+           
+           <div class="row" style=";margin-top:3%;">
+               
+           </div>
+           
+           
+           <div class="row" style=";margin-top:3%;">
+               <center><h4>ToDO List of Classical Problems</h4></center>
+           </div>
        </div>
         
        </div>
@@ -112,10 +121,6 @@
  
     
 </div>
-
-<footer class="container-fluid">
-  <p>Footer Text</p>
-</footer>
 
 </body>
 </html>
