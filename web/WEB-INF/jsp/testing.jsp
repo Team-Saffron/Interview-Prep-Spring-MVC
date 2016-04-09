@@ -13,9 +13,8 @@
     </head>
     <body>
         <h1> Hello</h1>
-        <h1>${newComment.id}</h1>
-        <h1>${newComment.heading}</h1>
-        <h1>${newComment.content}</h1>
-        <h1>${newComment.timestamp}</h1>
+        <h1>${user.username}</h1>
+        <h1>${user.password}</h1>
+       
     </body>
 </html>

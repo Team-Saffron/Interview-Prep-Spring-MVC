@@ -9,7 +9,6 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   
   <style>
-@charset "UTF-8";
 /* CSS Document */
 
 body {
@@ -69,16 +68,16 @@ p {
 <div class="col-md-5" >
 <a href="#"><img src="http://i.stack.imgur.com/pZzc4.png"  style = "width:100%"/></a><br/>
 <br>
-<button type="button" class="btn btn-danger btn-lg" style = "width:100%">Register</button>
+<form action = "/InterviewPrep/login/signup.htm" method = "get"> <button type="submit" class="btn btn-danger btn-lg" style = "width:100%" >Register</button> </form>
 </div>
 
     <div class="col-md-7" style="border-left:1px solid #ccc;height:160px">
-<form class="form-horizontal">
+<form class="form-horizontal" action = "/InterviewPrep/login.htm" method = "post">
 <fieldset>
 
-  <input id="textinput" name="textinput" type="text" placeholder="Enter User Name" class="form-control input-md">
-  <div class="spacing"><input type="checkbox" name="checkboxes" id="checkboxes-0" value="1"><small> Remember me</small></div>
-  <input id="textinput" name="textinput" type="text" placeholder="Enter Password" class="form-control input-md">
+  <input id="textinput" type="text" placeholder="Enter User Name" class="form-control input-md" name = "username">
+  <div class="spacing"></div>
+  <input id="textinput"  type="text" placeholder="Enter Password" class="form-control input-md" name = "password">
   <div class="spacing"><a href="#"><small> Forgot Password?</small></a><br/></div>
   <button id="singlebutton" name="singlebutton" class="btn btn-info btn-sm pull-right">Sign In</button>
 
@@ -92,9 +91,10 @@ p {
 </div>
 </div>
 
-<p><a href="https://github.com/arjunkomath">About</a> · Arjun</p>
-
 </div>
-</body>
+   
+    
+ 
+    
 </body>
 </html>
