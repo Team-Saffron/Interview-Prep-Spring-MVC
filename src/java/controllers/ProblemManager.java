@@ -5,8 +5,12 @@
  */
 package controllers;
 
+import MyPackages.ConnectDatabase;
+import MyPackages.Problem;
+import java.sql.SQLException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,10 +18,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ProblemManager {
     
     @RequestMapping(value = "problems/add",method = RequestMethod.GET)
-    public String addProblem(ModelMap model)
+    public String addProblemPage(ModelMap model)
     {
-        
         return "addProblem";
     }
+    
+    @RequestMapping(value = "problems/add",method = RequestMethod.POST)
+    public String addProblemRequest(@ModelAttribute Problem newProblem,ModelMap model) throws SQLException, ClassNotFoundException
+    {
+        ConnectDatabase.addProblem(newProblem);
+        model.put("status",ConnectDatabase.getProblems());
+        model.put("problem", newProblem);
+        return "testing";
+    }
+    
     
 }

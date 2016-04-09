@@ -13,8 +13,10 @@
     </head>
     <body>
         <h1> Hello</h1>
-        <h1>${user.username}</h1>
-        <h1>${user.password}</h1>
-       
+        <h1>${problem.name}</h1>
+        <h1>${problem.description}</h1>
+        <h1>${problem.input}</h1>
+       <h1>${problem.samples}</h1>
+       <h1>${status}</h1>
     </body>
 </html>
