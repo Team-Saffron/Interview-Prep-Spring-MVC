@@ -66,7 +66,7 @@
         <li><a href="#section3">Aptitude</a></li>
         <li><a href="discuss.htm">Discuss</a></li>
         <li><a href="#section3">Ranking</a></li>
-        <li><a href="#section3">Problems</a></li>
+        <li><a href="problems/view.htm">Problems</a></li>
         <li><a href="problems/add.htm">Add Problem</a></li>
       </ul><br>
       <div class="input-group">

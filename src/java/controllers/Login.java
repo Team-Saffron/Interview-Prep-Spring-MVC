@@ -5,7 +5,9 @@
  */
 package controllers;
 
+import MyPackages.ConnectDatabase;
 import MyPackages.User;
+import java.sql.SQLException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,7 +23,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class Login {
  
     @RequestMapping(method = RequestMethod.GET)
-    public String loginPage(ModelMap modelMap) {
+    public String loginPage(ModelMap modelMap) throws SQLException, ClassNotFoundException {
+     //   return "index";
+        
+       // modelMap.put("problem",ConnectDatabase.getProblems(1,1).get(0));
         return "index";
     }
     

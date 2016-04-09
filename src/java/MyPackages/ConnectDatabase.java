@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,11 +20,6 @@ public class ConnectDatabase {
  
     public static boolean addProblem(Problem p) throws SQLException, ClassNotFoundException
     {
-        /*Class.forName("com.mariadb.jdbc.Driver");
-        
-        Connection con =
-            DriverManager.getConnection("jdbc:mariadb://localhost:3306/interviewprep?user=root&password=");*/
-        
         Class.forName("org.mariadb.jdbc.Driver");  
 
         Connection con = DriverManager.getConnection(  
@@ -42,28 +38,30 @@ public class ConnectDatabase {
            con.close();
            return true;
     }
-    public static String getProblems() throws SQLException, ClassNotFoundException
+    public static ArrayList<Problem> getProblems(int start,int end) throws SQLException, ClassNotFoundException
     {
         Class.forName("com.mysql.jdbc.Driver");
-        
         Connection con =
             DriverManager.getConnection("jdbc:mysql://localhost:3306/interviewprep?user=root&password=");
- 
-            PreparedStatement ps1 = con.prepareStatement("select * from problems");
+            PreparedStatement ps1 = con.prepareStatement("select * from problems where id between " + start + " and " + end);
              
             ResultSet rs = ps1.executeQuery();
-            int count = 0;
-            String result = "";
+            
+            ArrayList<Problem> problemPool = new ArrayList<Problem>();
             while(rs.next())
             {
-                result = result + rs.getString(count+1);
-                count++;
- 
+                Problem newProb  = new Problem();
+                newProb.setId(rs.getInt(1));
+                newProb.setName(rs.getString(2));
+                newProb.setDescription(rs.getString(3));
+                newProb.setInput(rs.getString(4));
+                newProb.setSamples(rs.getString(6));
+                newProb.setOutput(rs.getString(5));
+                problemPool.add(newProb);
             }
-          
-   
+      
            con.close();
-           return result;
+           return problemPool;
     }
    
    

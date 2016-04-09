@@ -62,20 +62,39 @@
        
         
         <div class ="row">
-            <center><h1> TEST - Life, the Universe, and Everything </h1></center>
+            <center><h1>${problem.name}</h1></center>
         </div>
-       
-      
-  
+     
+
         <div class ="row" style = "margin-top: 5%;">
          
            
             <div class ="col-md-12">
-                <b><center><p>Your program is to use the brute-force approach in order to find the Answer to Life, the Universe, and Everything. More precisely... rewrite small numbers from input to output. Stop processing input after reading in the number 42. All numbers at input are integers of one or two digits.
+                <center><b><p>${problem.description}</p>
                 </b></div></center>
             
         </div>
+         
+         
+        <div class ="row" style = "margin-top: 5%;">
+         
+            
+            <div class ="col-md-12">
+                <b><p><b>Sample Input: </b>${problem.input}</p>
+                </b></div>
+            
+        </div>
         
+                    
+         
+        <div class ="row" style = "margin-top: 2%;">
+         
+            
+            <div class ="col-md-12">
+                <b><p><b>Output: </b>${problem.output}</p>
+                </b></div>
+            
+        </div>
         
         <div class ="row" style = "margin-top: 10%;">
                         

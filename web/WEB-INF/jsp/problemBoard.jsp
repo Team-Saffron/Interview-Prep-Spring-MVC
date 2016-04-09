@@ -66,7 +66,7 @@
         <li><a href="#section3">Aptitude</a></li>
         <li><a href="discuss.htm">Discuss</a></li>
         <li><a href="#section3">Ranking</a></li>
-        <li><a href="problems/view.htm">Problems</a></li>
+        <li><a href="problems/view">Problems</a></li>
         <li><a href="problems/add.htm">Add Problem</a></li>
       </ul><br>
       <div class="input-group">
@@ -81,41 +81,23 @@
   
  
        <div class = "col-md-9" style = "margin-left:5%;">
-             <div class="well well-sm"  style="margin-top:3%;">
-                 <a href="dashboard.htm">Profile</a>
-                 <a href="status.htm" style = "float:right;">Submissions</a>
-                 <a href="account.htm" style = "float:right;margin-right:5px">   Account</a>
-             </div>
-           
-            <div class = "row">
-                <div class = "col-md-4" style ="margin-top:8%;">
-                    <img src ="https://en.opensuse.org/images/0/0b/Icon-user.png" >
-                    <br>
-                    <b>Archit Jain</b><br>
-                    <b>Delhi Colledge Of Engineering</b>
-                </div>
-                <div class = "col-md-8">
-                        <div id="donutchart" style="width: 100%; height: 400px;"></div>
-                </div>
-            </div>
-           
-           <div class="row" style="margin-left:10%;margin-top:3%;">
-               <h4>Problems Solved: 192</h4>
-               <h4>Total Submission: 1024</h4>
-           </div>
-           
-           <div class="row" style=";margin-top:3%;">
-               <center><h4>Problems Solved</h4></center>
-           </div>
-           
-           <div class="row" style=";margin-top:3%;">
-               
-           </div>
-           
-           
-           <div class="row" style=";margin-top:3%;">
-               <center><h4>ToDO List of Classical Problems</h4></center>
-           </div>
+             
+  <h2>Classical Problems</h2>
+   
+  
+  <table class="table table-condensed" style = "margin-top:5%;">
+       <tr class = "success">
+        <th>Id</th>
+        <th>Problem Name</th>
+      </tr>
+    <tbody>
+      ${table}
+    </tbody>
+  </table>
+<ul class="pager">
+  <li><a href="#">Previous</a></li>
+  <li><a href="#">Next</a></li>
+</ul>
        </div>
         
        </div>
@@ -126,3 +108,5 @@
 
 </body>
 </html>
+
+
