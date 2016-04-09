@@ -22,7 +22,7 @@ public class Login {
  
     @RequestMapping(method = RequestMethod.GET)
     public String loginPage(ModelMap modelMap) {
-        return "problemPage";
+        return "index";
     }
     
     @RequestMapping(method = RequestMethod.POST)

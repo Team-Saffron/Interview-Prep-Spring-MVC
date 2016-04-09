@@ -41,7 +41,7 @@
 </script>
 </head>
 
-<body bgcolor = "white">
+<body>
   
   <!--Code for navigation bar-->
      <nav class="navbar navbar-default">
@@ -70,18 +70,18 @@
         <div class ="row" style = "margin-top: 5%;">
          
            
-            <div class ="col-md-10">
-          <p>Your program is to use the brute-force approach in order to find the Answer to Life, the Universe, and Everything. More precisely... rewrite small numbers from input to output. Stop processing input after reading in the number 42. All numbers at input are integers of one or two digits.
-            </div>
-            <div class ="col-md-2"></div>
+            <div class ="col-md-12">
+                <b><center><p>Your program is to use the brute-force approach in order to find the Answer to Life, the Universe, and Everything. More precisely... rewrite small numbers from input to output. Stop processing input after reading in the number 42. All numbers at input are integers of one or two digits.
+                </b></div></center>
+            
         </div>
         
         
         <div class ="row" style = "margin-top: 10%;">
                         
           
-            <div class ="col-md-8">
-                <textarea name="my-xml-editor"  data-editor="cpp" data-gutter="1" rows="20" cols = "150">class practise{
+            <div class ="col-md-12">
+                <textarea name="my-xml-editor"  data-editor="cpp" data-gutter="1" rows="20" cols = "160%">class practise{
     public static void main(String args[]){
                 //write your code here
         }
@@ -90,6 +90,10 @@
             </div>
             <div class ="col-md-2"></div>
         </div>
+      
+      <div class ="row"  style = "margin-top: 1%;">
+          <button type="button" class="btn btn-primary btn-lg" style = "float:right">Submit</button>
+      </div>
   </div>
   
 </body>

@@ -45,6 +45,8 @@
         <li><a href="#section3">Aptitude</a></li>
         <li><a href="discuss.htm">Discuss</a></li>
         <li><a href="#section3">Ranking</a></li>
+          <li><a href="#section3">Problems</a></li>
+        <li><a href="#section3">Add Problem</a></li>
       </ul><br>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search Blog..">
