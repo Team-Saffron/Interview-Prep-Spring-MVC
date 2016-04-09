@@ -13,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
  *
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/login")
+@SessionAttributes("session")
 public class Login {
  
     @RequestMapping(method = RequestMethod.GET)
@@ -45,6 +47,7 @@ public class Login {
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public String newEntry(@ModelAttribute User newUser,ModelMap modelMap) throws SQLException, ClassNotFoundException {
         ConnectDatabase.addUser(newUser);
+        modelMap.put("session", newUser);
         return "dashboard";
     }
     
