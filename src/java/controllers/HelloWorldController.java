@@ -18,6 +18,6 @@ public class HelloWorldController {
     public String helloWorld(ModelMap modelMap) {
         System.out.println("on method");
         modelMap.put("printme", "Hello Spring !!");
-        return "dashboard";
+        return "index";
     }
 }
