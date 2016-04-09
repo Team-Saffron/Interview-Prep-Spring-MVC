@@ -63,6 +63,25 @@ public class ConnectDatabase {
            con.close();
            return problemPool;
     }
+    
+     public static boolean addUser(User u) throws SQLException, ClassNotFoundException
+    {
+        Class.forName("org.mariadb.jdbc.Driver");  
+
+        Connection con = DriverManager.getConnection(  
+                "jdbc:mariadb://localhost:3306/interviewprep", "root", ""); 
+ 
+            PreparedStatement ps = con.prepareStatement("insert into user(username,passwrod,fullname,email) "
+                +"values(?,?,?,?)" );
+            ps.setString(1, u.getUsername());
+            ps.setString(2, u.getPasswrod());
+            ps.setString(3, u.getFullname());
+            ps.setString(4,u.getEmail());
+            ps.executeUpdate();
+             
+           con.close();
+           return true;
+    }
    
    
 }

@@ -18,7 +18,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-
 @Controller
 @RequestMapping("/discuss.htm")
 public class Discuss {

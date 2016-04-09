@@ -10,13 +10,21 @@ import java.util.*;
 public class User {
     
     private String username;
-    private String password;
+    private String passwrod;
     private String fullname;
     private String email;
     private Date dob;
     private String country;
     private String gender;
-    
+    private int age;
+  
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
     //other optional Attributes to be added later
 
     public String getUsername() {
@@ -27,8 +35,8 @@ public class User {
         this.username = username;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswrod(String password) {
+        this.passwrod = password;
     }
 
     public String getFullname() {
@@ -70,7 +78,8 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    
-    
-    
+
+    public String getPasswrod() {
+        return passwrod;
+    }   
 }

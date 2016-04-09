@@ -41,4 +41,12 @@ public class Login {
     public String register(ModelMap modelMap) {
         return "registration";
     }
+    
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    public String newEntry(@ModelAttribute User newUser,ModelMap modelMap) throws SQLException, ClassNotFoundException {
+        ConnectDatabase.addUser(newUser);
+        return "dashboard";
+    }
+    
+    
 }
