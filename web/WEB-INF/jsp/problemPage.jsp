@@ -8,9 +8,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
+  <script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
   <script src = "test.js"></script>
-  <link rel="stylesheet" type="text/css" href="textcss">
+ 
   <script>
       $(function() {
   $('textarea[data-editor]').each(function() {
@@ -37,10 +37,11 @@
     })
   });
 });
+
 </script>
 </head>
 
-<body onload = "startTime()">
+<body bgcolor = "white">
   
   <!--Code for navigation bar-->
      <nav class="navbar navbar-default">
@@ -56,8 +57,39 @@
       </div>
     </nav>
   
+  
   <div class ="container">
-     <textarea name="my-xml-editor" data-editor="cpp" data-gutter="1" rows="20" cols = "150"></textarea>
+       
+        
+        <div class ="row">
+            <center><h1> TEST - Life, the Universe, and Everything </h1></center>
+        </div>
+       
+      
+  
+        <div class ="row" style = "margin-top: 5%;">
+         
+           
+            <div class ="col-md-10">
+          <p>Your program is to use the brute-force approach in order to find the Answer to Life, the Universe, and Everything. More precisely... rewrite small numbers from input to output. Stop processing input after reading in the number 42. All numbers at input are integers of one or two digits.
+            </div>
+            <div class ="col-md-2"></div>
+        </div>
+        
+        
+        <div class ="row" style = "margin-top: 10%;">
+                        
+          
+            <div class ="col-md-8">
+                <textarea name="my-xml-editor"  data-editor="cpp" data-gutter="1" rows="20" cols = "150">class practise{
+    public static void main(String args[]){
+                //write your code here
+        }
+}
+                </textarea>
+            </div>
+            <div class ="col-md-2"></div>
+        </div>
   </div>
   
 </body>
