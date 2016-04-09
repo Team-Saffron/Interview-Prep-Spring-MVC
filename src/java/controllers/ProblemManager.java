@@ -56,8 +56,8 @@ public class ProblemManager {
         
         for(int i = 0;i<pool.size();i++)
             HTML = HTML + "<tr><td><b> Problem " + pool.get(i).getId() + "</b></td><td><b>"
-            
-                    + pool.get(i).getName()+"</b></tr>";
+                    + "<a href= \"/InterviewPrep/problems/view/problemId/" + pool.get(i).getId() + "\">"
+                    + pool.get(i).getName()+"</a></b></tr>";
         
         return HTML;
     }

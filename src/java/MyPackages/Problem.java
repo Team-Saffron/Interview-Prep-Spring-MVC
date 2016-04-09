@@ -34,7 +34,7 @@ public class Problem {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = description.replace("\n", "<br />\n");
     }
 
     public String getInput() {
@@ -42,7 +42,7 @@ public class Problem {
     }
 
     public void setInput(String input) {
-        this.input = input;
+        this.input = input.replace("\n", "<br />\n");
     }
 
     public String getOutput() {
@@ -58,7 +58,7 @@ public class Problem {
     }
 
     public void setSamples(String samples) {
-        this.samples = samples;
+        this.samples = samples.replace("\n", "<br />\n");
     }
             
     
