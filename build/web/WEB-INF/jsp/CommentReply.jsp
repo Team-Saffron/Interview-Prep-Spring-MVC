@@ -60,24 +60,25 @@
       
     <div class="col-sm-9">
       
-      
         
-        <div class ="row">
-            <center><h1>${comment.heading}</h1></center>
+        
+        <div class ="row" style = "margin: 1%;">
+            <h1>${comment.heading}</h1>
+            
         </div>
      
 
-        <div class ="row" style = "margin-top: 5%;">
+        <div class ="row" style = "margin: 1%;">
          
            
             <div class ="col-md-12">
-                <center><b><p>${comment.content}</p>
+                <b><p>${comment.content}
                 </b></div></center>
             
         </div>
       
       
-      
+      ${replyCards}
       <br>
       <br>
       
@@ -85,10 +86,10 @@
       <h4>Ask Query:</h4>
       
       <h4>${errorMessage}</h4>
-      <form role="form" method = "post" action = "/InterviewPrep/discuss.htm">
+      <form role="form" method = "post" action = ${url}>
           
         <div class="form-group">
-            <label for="commentHeading">Heading:</label>
+            <label for="commentHeading">Name:</label>
             <input type="text" required class="form-control" id="commenHeading" name = "heading">
         </div>
           

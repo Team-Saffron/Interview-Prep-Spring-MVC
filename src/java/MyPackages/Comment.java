@@ -45,7 +45,7 @@ public class Comment {
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.content = content.replace("\n", "<br />\n");
     }
 
     public void setTimestamp(String timestamp) {

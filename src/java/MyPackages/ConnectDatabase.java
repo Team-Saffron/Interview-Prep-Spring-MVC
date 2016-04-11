@@ -128,6 +128,47 @@ public class ConnectDatabase {
            return problemPool;
     }
     
+      public static boolean addCommentResponse(int id,Comment u) throws SQLException, ClassNotFoundException
+    {
+        Class.forName("org.mariadb.jdbc.Driver");  
+
+        Connection con = DriverManager.getConnection(  
+                "jdbc:mariadb://localhost:3306/interviewprep", "root", ""); 
+ 
+            PreparedStatement ps = con.prepareStatement("insert into reply "
+                +"values(?,?,?)" );
+            ps.setInt(1,id);
+            ps.setString(2, u.getHeading());
+            ps.setString(3, u.getContent());
+            ps.executeUpdate();
+             
+           con.close();
+           return true;
+    }
+      
+        public static ArrayList<Comment> getResponses(int id) throws SQLException, ClassNotFoundException
+    {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con =
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/interviewprep?user=root&password=");
+            PreparedStatement ps1 = con.prepareStatement("select * from reply where id = " + id + ";");
+             
+            ResultSet rs = ps1.executeQuery();
+            
+            ArrayList<Comment> problemPool = new ArrayList<Comment>();
+            while(rs.next())
+            {
+                Comment newProb  = new Comment();
+               
+                newProb.setHeading(rs.getString("name"));
+                newProb.setContent(rs.getString("content"));
+                problemPool.add(newProb);
+            }
+      
+           con.close();
+           return problemPool;
+    }
+    
    
      
    
