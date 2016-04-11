@@ -4,10 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/archit08jain/Documents/NetBeansProjects/InterviewPrep/web/WEB-INF/jsp/testing.jsp</file>
-            <file>file:/C:/Users/archit08jain/Documents/NetBeansProjects/InterviewPrep/web/WEB-INF/jsp/addProblem.jsp</file>
+            <file>file:/C:/Users/archit08jain/Documents/NetBeansProjects/InterviewPrep/src/java/MyPackages/Comment.java</file>
             <file>file:/C:/Users/archit08jain/Documents/NetBeansProjects/InterviewPrep/src/java/MyPackages/ConnectDatabase.java</file>
-            <file>file:/C:/Users/archit08jain/Documents/NetBeansProjects/InterviewPrep/src/java/MyPackages/Problem.java</file>
-            <file>file:/C:/Users/archit08jain/Documents/NetBeansProjects/InterviewPrep/src/java/controllers/ProblemManager.java</file>
+            <file>file:/C:/Users/archit08jain/Documents/NetBeansProjects/InterviewPrep/web/WEB-INF/jsp/discuss.jsp</file>
+            <file>file:/C:/Users/archit08jain/Documents/NetBeansProjects/InterviewPrep/src/java/controllers/Discuss.java</file>
+            <file>file:/C:/Users/archit08jain/Documents/NetBeansProjects/InterviewPrep/web/WEB-INF/jsp/CommentReply.jsp</file>
         </group>
     </open-files>
 </project-private>

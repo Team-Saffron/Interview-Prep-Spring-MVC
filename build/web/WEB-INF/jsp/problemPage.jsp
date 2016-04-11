@@ -29,8 +29,8 @@
     
     //editor.getSession().setMode("ace/mode/" + mode);
     //editor.setTheme("ace/theme/idle_fingers");
-    editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/java");
+    editor.setTheme("ace/theme/lazy");
+    editor.getSession().setMode("ace/mode/c_cpp");
     // copy back to textarea on form submit...
     textarea.closest('form').submit(function() {
       textarea.val(editor.getSession().getValue());
@@ -100,10 +100,13 @@
                         
           
             <div class ="col-md-12">
-                <textarea name="my-xml-editor"  data-editor="cpp" data-gutter="1" rows="20" cols = "160%">class practise{
-    public static void main(String args[]){
-                //write your code here
-        }
+                <textarea name="my-xml-editor"  data-editor="cpp" data-gutter="1" rows="20" cols = "160%">#include<bits/stdc++.h>
+using namespace std;
+                
+int main()
+{
+    //write your code here
+    return 0;
 }
                 </textarea>
             </div>

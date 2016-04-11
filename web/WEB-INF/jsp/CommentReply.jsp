@@ -59,9 +59,24 @@
     </div>
       
     <div class="col-sm-9">
-      <h4><small>RECENT POSTS</small></h4>
       
-      ${cards}
+      
+        
+        <div class ="row">
+            <center><h1>${comment.heading}</h1></center>
+        </div>
+     
+
+        <div class ="row" style = "margin-top: 5%;">
+         
+           
+            <div class ="col-md-12">
+                <center><b><p>${comment.content}</p>
+                </b></div></center>
+            
+        </div>
+      
+      
       
       <br>
       <br>

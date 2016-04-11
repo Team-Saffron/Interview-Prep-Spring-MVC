@@ -13,7 +13,7 @@ public class Comment {
     private String id;
     private String heading;
     private String content;
-    private Date timestamp;
+    private String timestamp;
     private String userId;
 
     public String getId() {
@@ -28,7 +28,7 @@ public class Comment {
         return content;
     }
 
-    public Date getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
@@ -48,7 +48,7 @@ public class Comment {
         this.content = content;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 

@@ -83,6 +83,52 @@ public class ConnectDatabase {
            con.close();
            return true;
     }
+     
+       public static boolean addComment(Comment c) throws SQLException, ClassNotFoundException
+    {
+        Class.forName("org.mariadb.jdbc.Driver");  
+
+        Connection con = DriverManager.getConnection(  
+                "jdbc:mariadb://localhost:3306/interviewprep", "root", ""); 
+ 
+            PreparedStatement ps = con.prepareStatement("insert into comment(heading,content,timestamp,userId) "
+                +"values(?,?,?,?)" );
+            ps.setString(1,c.getHeading());
+            ps.setString(2, c.getContent());
+            ps.setString(3,String.valueOf(c.getTimestamp()));
+            ps.setString(4,c.getUserId());
+            ps.executeUpdate();
+             
+           con.close();
+           return true;
+    }
+       
+    public static ArrayList<Comment> getComments(int start,int end) throws SQLException, ClassNotFoundException
+    {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con =
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/interviewprep?user=root&password=");
+            PreparedStatement ps1 = con.prepareStatement("select * from comment where id between " + start + " and " + end + " order by id DESC;");
+             
+            ResultSet rs = ps1.executeQuery();
+            
+            ArrayList<Comment> problemPool = new ArrayList<Comment>();
+            while(rs.next())
+            {
+                Comment newProb  = new Comment();
+                newProb.setId(rs.getString("id"));
+                newProb.setHeading(rs.getString("heading"));
+                newProb.setContent(rs.getString("content"));
+            //    newProb.setTimestamp(String.valueOf(rs.getDate(4)));
+                newProb.setUserId(rs.getString("userId"));
+                problemPool.add(newProb);
+            }
+      
+           con.close();
+           return problemPool;
+    }
+    
    
+     
    
 }

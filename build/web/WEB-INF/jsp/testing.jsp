@@ -13,9 +13,9 @@
     </head>
     <body>
         <h1> Hello</h1>
-        <h1>${problem.name}</h1>
-        <h1>${problem.description}</h1>
-        <h1>${problem.input}</h1>
+        <h1>${newComment.userId}</h1>
+        <h1>${newComment.heading}</h1>
+        <h1>${newComment.content}</h1>
        <h1>${problem.samples}</h1>
        <h1>${status}</h1>
     </body>
