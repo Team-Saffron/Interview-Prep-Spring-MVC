@@ -13,20 +13,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-/**
- *
- * @author archit08jain
- */
 public class ConnectDatabase {
  
     public static boolean addProblem(Problem p) throws SQLException, ClassNotFoundException
     {
-        Class.forName("org.mariadb.jdbc.Driver");  
-
-        Connection con = DriverManager.getConnection(  
-                "jdbc:mariadb://localhost:3306/interviewprep", "root", ""); 
- 
-            PreparedStatement ps = con.prepareStatement("insert into problems "
+            PreparedStatement ps = Database.getConnection().prepareStatement("insert into problems "
                 +"values(?,?,?,?,?,?)" );
             ps.setString(1, String.valueOf(p.getId()));
             ps.setString(2, p.getName());
@@ -36,18 +27,14 @@ public class ConnectDatabase {
             ps.setString(6, p.getSamples());
             ps.executeUpdate();
              
-           con.close();
            return true;
     }
     public static ArrayList<Problem> getProblems(int start,int end) throws SQLException, ClassNotFoundException
     {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection con =
-            DriverManager.getConnection("jdbc:mysql://localhost:3306/interviewprep?user=root&password=");
-            PreparedStatement ps1 = con.prepareStatement("select * from problems where id between " + start + " and " + end);
+            PreparedStatement ps1 = Database.getConnection().prepareStatement("select * from problems where id between " + start + " and " + end);
              
             ResultSet rs = ps1.executeQuery();
-            
+
             ArrayList<Problem> problemPool = new ArrayList<Problem>();
             while(rs.next())
             {
@@ -60,38 +47,25 @@ public class ConnectDatabase {
                 newProb.setOutput(rs.getString(5));
                 problemPool.add(newProb);
             }
-      
-           con.close();
            return problemPool;
     }
     
      public static boolean addUser(User u) throws SQLException, ClassNotFoundException
     {
-        Class.forName("org.mariadb.jdbc.Driver");  
-
-        Connection con = DriverManager.getConnection(  
-                "jdbc:mariadb://localhost:3306/interviewprep", "root", ""); 
- 
-            PreparedStatement ps = con.prepareStatement("insert into user(username,passwrod,fullname,email) "
+            PreparedStatement ps = Database.getConnection().prepareStatement("insert into user(username,password,fullname,email) "
                 +"values(?,?,?,?)" );
             ps.setString(1, u.getUsername());
-            ps.setString(2, u.getPasswrod());
+            ps.setString(2, u.getPassword());
             ps.setString(3, u.getFullname());
             ps.setString(4,u.getEmail());
             ps.executeUpdate();
-             
-           con.close();
+            
            return true;
     }
      
        public static boolean addComment(Comment c) throws SQLException, ClassNotFoundException
     {
-        Class.forName("org.mariadb.jdbc.Driver");  
-
-        Connection con = DriverManager.getConnection(  
-                "jdbc:mariadb://localhost:3306/interviewprep", "root", ""); 
- 
-            PreparedStatement ps = con.prepareStatement("insert into comment(heading,content,timestamp,userId) "
+            PreparedStatement ps =  Database.getConnection().prepareStatement("insert into comment(heading,content,timestamp,userId) "
                 +"values(?,?,?,?)" );
             ps.setString(1,c.getHeading());
             ps.setString(2, c.getContent());
@@ -99,7 +73,6 @@ public class ConnectDatabase {
             ps.setString(4,c.getUserId());
             ps.executeUpdate();
              
-           con.close();
            return true;
     }
        
@@ -130,28 +103,20 @@ public class ConnectDatabase {
     
       public static boolean addCommentResponse(int id,Comment u) throws SQLException, ClassNotFoundException
     {
-        Class.forName("org.mariadb.jdbc.Driver");  
-
-        Connection con = DriverManager.getConnection(  
-                "jdbc:mariadb://localhost:3306/interviewprep", "root", ""); 
- 
-            PreparedStatement ps = con.prepareStatement("insert into reply "
+            PreparedStatement ps = Database.getConnection().prepareStatement("insert into reply "
                 +"values(?,?,?)" );
             ps.setInt(1,id);
             ps.setString(2, u.getHeading());
             ps.setString(3, u.getContent());
             ps.executeUpdate();
-             
-           con.close();
+           
            return true;
     }
       
-        public static ArrayList<Comment> getResponses(int id) throws SQLException, ClassNotFoundException
+    public static ArrayList<Comment> getResponses(int id) throws SQLException, ClassNotFoundException
     {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection con =
-            DriverManager.getConnection("jdbc:mysql://localhost:3306/interviewprep?user=root&password=");
-            PreparedStatement ps1 = con.prepareStatement("select * from reply where id = " + id + ";");
+        
+            PreparedStatement ps1 = Database.getConnection().prepareStatement("select * from reply where id = " + id + ";");
              
             ResultSet rs = ps1.executeQuery();
             
@@ -164,11 +129,31 @@ public class ConnectDatabase {
                 newProb.setContent(rs.getString("content"));
                 problemPool.add(newProb);
             }
-      
-           con.close();
            return problemPool;
     }
     
+    public static boolean authenticateUser(User newUser)throws SQLException, ClassNotFoundException{
+     
+            Connection conn  = Database.getConnection();
+            
+            PreparedStatement ps1 = Database.getConnection().prepareStatement("SELECT * FROM `user` WHERE username ="+ "\""+newUser.getUsername()+"\"");
+            
+            ResultSet rs = ps1.executeQuery();
+            
+            int count = 0;
+            while(rs.next())
+            {
+                count++;
+               
+                String password = rs.getString("password");
+                
+                if(rs.equals(newUser.getPassword()))
+                        return true;
+                else
+                    return false;
+            }
+            return false;
+    }
    
      
    

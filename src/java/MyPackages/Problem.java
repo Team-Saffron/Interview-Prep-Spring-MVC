@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MyPackages;
 
 public class Problem {
@@ -50,7 +45,7 @@ public class Problem {
     }
 
     public void setOutput(String output) {
-        this.output = output;
+        this.output = output.replace("\n", "<br />\n");
     }
 
     public String getSamples() {
@@ -61,5 +56,4 @@ public class Problem {
         this.samples = samples.replace("\n", "<br />\n");
     }
             
-    
 }

@@ -6,13 +6,18 @@
 package controllers;
 
 import MyPackages.ConnectDatabase;
+import MyPackages.Database;
 import MyPackages.User;
 import java.sql.SQLException;
+import java.text.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
@@ -33,10 +38,15 @@ public class Login {
     }
     
     @RequestMapping(method = RequestMethod.POST)
-    public String signin(@ModelAttribute User newUser,ModelMap modelMap) {
+    public String signin(@ModelAttribute User newUser,ModelMap modelMap) throws SQLException, ClassNotFoundException {
         
-        modelMap.put("user", newUser);
-        return "testing";
+        if(ConnectDatabase.authenticateUser(newUser))
+        {
+            modelMap.put("session",newUser);
+            return "dashboard";
+        }
+        modelMap.put("ERROR","Authentication Failed");
+        return "index"; 
     }
     
     @RequestMapping(value = "/signup",method = RequestMethod.GET)
@@ -49,7 +59,5 @@ public class Login {
         ConnectDatabase.addUser(newUser);
         modelMap.put("session", newUser);
         return "dashboard";
-    }
-    
-    
+    }  
 }

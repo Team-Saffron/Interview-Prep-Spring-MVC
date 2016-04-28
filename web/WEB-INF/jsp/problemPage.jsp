@@ -70,8 +70,8 @@
          
            
             <div class ="col-md-12">
-                <center><b><p>${problem.description}</p>
-                </b></div></center>
+                <b><p>${problem.description}</p>
+                </b></div>
             
         </div>
          
@@ -100,13 +100,10 @@
                         
           
             <div class ="col-md-12">
-                <textarea name="my-xml-editor"  data-editor="cpp" data-gutter="1" rows="20" cols = "160%">#include<bits/stdc++.h>
-using namespace std;
-                
-int main()
-{
-    //write your code here
-    return 0;
+                <textarea name="my-xml-editor"  data-editor="cpp" data-gutter="1" rows="20" cols = "160%">class practise{
+    public static void main(String args[]){
+        //Write your code here
+    }
 }
                 </textarea>
             </div>
@@ -114,7 +111,9 @@ int main()
         </div>
       
       <div class ="row"  style = "margin-top: 1%;">
-          <button type="button" class="btn btn-primary btn-lg" style = "float:right">Submit</button>
+          <form>
+          <button type="submit" class="btn btn-primary btn-lg" style = "float:right">Submit</button>
+          </form>
       </div>
   </div>
   

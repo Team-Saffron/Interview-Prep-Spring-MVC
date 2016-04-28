@@ -10,7 +10,7 @@ import java.util.*;
 public class User {
     
     private String username;
-    private String passwrod;
+    private String password;
     private String fullname;
     private String email;
     private Date dob;
@@ -36,7 +36,7 @@ public class User {
     }
 
     public void setPasswrod(String password) {
-        this.passwrod = password;
+        this.password = password;
     }
 
     public String getFullname() {
@@ -79,7 +79,7 @@ public class User {
         this.gender = gender;
     }
 
-    public String getPasswrod() {
-        return passwrod;
+    public String getPassword() {
+        return password;
     }   
 }
