@@ -45,8 +45,9 @@ public class Login {
             modelMap.put("session",newUser);
             return "dashboard";
         }
+       // modelMap.put("newUser",newUser);
         modelMap.put("ERROR","Authentication Failed");
-        return "index"; 
+        return "login"; 
     }
     
     @RequestMapping(value = "/signup",method = RequestMethod.GET)

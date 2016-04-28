@@ -147,7 +147,7 @@ public class ConnectDatabase {
                
                 String password = rs.getString("password");
                 
-                if(rs.equals(newUser.getPassword()))
+                if(password.equals(newUser.getPassword()))
                         return true;
                 else
                     return false;
