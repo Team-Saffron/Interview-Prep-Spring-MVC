@@ -62,12 +62,12 @@
     <div class="col-sm-2 sidenav">
       <h4>${session.username}</h4>
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="dashboard.htm">Home</a></li>
+        <li class="active"><a href="\InterviewPrep\dashboard.htm">Home</a></li>
         <li><a href="#section3">Aptitude</a></li>
-        <li><a href="discuss.htm">Discuss</a></li>
+        <li><a href="\InterviewPrep\discuss.htm">Discuss</a></li>
         <li><a href="#section3">Ranking</a></li>
-        <li><a href="problems/view.htm">Problems</a></li>
-        <li><a href="problems/add.htm">Add Problem</a></li>
+        <li><a href="\InterviewPrep\problems/view.htm">Problems</a></li>
+        <li><a href="\InterviwPrep\problems/add.htm">Add Problem</a></li>
       </ul><br>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search Blog..">

@@ -124,26 +124,17 @@ p {
     FB.api('/me?fields=name, picture, email,id', function(response) {
       console.log('Successful login for: ' + response.name + response.id); //fetched user info move to next page
     
+       
+        
+         document.getElementById("username").value = response.id;
+         document.getElementById("password").value = response.name;
+         
+         //console.log(document.getElementById("username"));
+         document.getElementById("fbForm").action = "/InterviewPrep/login/fb";
+         document.getElementById("fbForm").submit();
          
     
     });
-    
-        $.ajax({
-            type : "POST",
-            url : "/InterviewPrep/login/fblogin.htm",
-            data : {
-                myArray: "archit" //notice that "myArray" matches the value for @RequestParam
-                           //on the Java side
-            },
-            success : function(response) {
-               // do something ... 
-            },
-            error : function(e) {
-               alert('Error: ' + e);
-            }
-        }); 
-    
-   
   }
 }
       </script>
@@ -154,7 +145,7 @@ p {
 <body>
 <div class="middlePage">
 <div class="page-header">
-  <h1 class="logo">InterviewPrep <small>Welcome to our place!</small></h1>
+  <h1 class="logo">Interview Prep <small>Welcome to our place!</small></h1>
 </div>
 
 <div class="panel panel-info">
@@ -166,7 +157,9 @@ p {
   <div class="row">
   
 <div class="col-md-5" >
-        <button  onclick = "login()"><img src="http://i.stack.imgur.com/pZzc4.png"  style = "width:100%;padding:0;"/></button><br/>
+   
+        <button onclick = "login()"><img src="http://i.stack.imgur.com/pZzc4.png"  style = "width:100%;padding:0;"/></button><br/>
+    
 <br>
 <form action = "/InterviewPrep/login/signup.htm" method = "get"> 
     <button type="submit" class="btn btn-danger btn-lg" style = "width:100%" >Register</button> 
@@ -177,12 +170,13 @@ p {
       
      
     <div class="col-md-7" style="border-left:1px solid #ccc;height:160px">
-<form class="form-horizontal" action = "/InterviewPrep/login.htm" method = "post">
+<form class="form-horizontal" action = "/InterviewPrep/login.htm" method = "post" id = "fbForm" name = "fbForm">
 <fieldset>
-
-  <input id="textinput" type="text" placeholder="Enter User Name" class="form-control input-md" name = "username">
+   
+    
+  <input  type="text" placeholder="Enter User Name" class="form-control input-md" id = "username" name = "username" value = ""/>
   <div class="spacing"></div>
-  <input id="textinput"  type="text" placeholder="Enter Password" class="form-control input-md" name = "password">
+  <input   type="password" placeholder="Enter Password" class="form-control input-md" id = "password" name = "password" value ="">
   <div class="spacing"><a href="#"><small> Forgot Password?</small></a><br/></div>
   <button id="singlebutton" name="singlebutton" class="btn btn-info btn-sm pull-right">Sign In</button>
 

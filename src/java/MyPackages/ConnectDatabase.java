@@ -154,6 +154,28 @@ public class ConnectDatabase {
             }
             return false;
     }
+    
+    
+    public static boolean contains(User newUser) throws SQLException, ClassNotFoundException{
+        
+        
+            Connection conn  = Database.getConnection();
+            
+            PreparedStatement ps1 = Database.getConnection().prepareStatement("SELECT * FROM `user` WHERE username ="+ "\""+newUser.getUsername()+"\"");
+            ResultSet rs = ps1.executeQuery();
+            
+            int count =0;
+            while(rs.next())
+            {
+                count++;
+            }
+            
+            if(count==0)
+            return false;
+            else
+            return true;
+            
+    }
    
      
    

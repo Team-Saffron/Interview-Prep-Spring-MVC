@@ -45,9 +45,8 @@ public class Login {
             modelMap.put("session",newUser);
             return "dashboard";
         }
-       // modelMap.put("newUser",newUser);
         modelMap.put("ERROR","Authentication Failed");
-        return "login"; 
+        return "index"; 
     }
     
     @RequestMapping(value = "/signup",method = RequestMethod.GET)
@@ -57,7 +56,23 @@ public class Login {
     
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public String newEntry(@ModelAttribute User newUser,ModelMap modelMap) throws SQLException, ClassNotFoundException {
-        ConnectDatabase.addUser(newUser);
+       
+        if(!ConnectDatabase.contains(newUser))
+             ConnectDatabase.addUser(newUser);
+        else
+        {
+            modelMap.put("ERROR","User already exists");
+        }
+        modelMap.put("session", newUser);
+        return "dashboard";
+    }  
+      
+    @RequestMapping(value = "/fb",method = RequestMethod.POST)
+    public String fblgin(@ModelAttribute User newUser,ModelMap modelMap) throws SQLException, ClassNotFoundException {
+       
+        if(!ConnectDatabase.contains(newUser))
+            ConnectDatabase.addUser(newUser);
+        
         modelMap.put("session", newUser);
         return "dashboard";
     }  
