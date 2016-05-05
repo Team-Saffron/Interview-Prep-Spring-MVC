@@ -6,8 +6,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1> Hello</h1>
-        <h1>${newUser.password}</h1>
-        <h1>${newUser.username}</h1>
+        <p> ${problem}</p>
     </body>
 </html>

@@ -63,7 +63,6 @@
         <h4>${session.username}</h4>
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="/InterviewPrep/dashboard.htm">Home</a></li>
-        <li><a href="#section3">Aptitude</a></li>
         <li><a href="/InterviewPrep/discuss.htm">Discuss</a></li>
         <li><a href="#section3">Ranking</a></li>
         <li><a href="/InterviewPrep/problems/view">Problems</a></li>

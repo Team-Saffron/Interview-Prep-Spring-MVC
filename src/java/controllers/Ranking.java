@@ -1,4 +1,3 @@
-
 package controllers;
 
 import org.springframework.stereotype.Controller;
@@ -9,17 +8,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-@RequestMapping("/dashboard")
-public class Dashboard {
+@RequestMapping("/ranks")
+public class Ranking {
        
     @RequestMapping(method = RequestMethod.GET)
-    public String getDashboard(ModelMap modelMap) {
+    public String getRanks(ModelMap modelMap) {
         
-        return "dashboard";
+        return "ranking";
     }
     
-    @RequestMapping(value = "editProfile",method = RequestMethod.GET)
-    public String editProfile(ModelMap modelMap) {
-        return "userInfo";
-    }
+    
 }

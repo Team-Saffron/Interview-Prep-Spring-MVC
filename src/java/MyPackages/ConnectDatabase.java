@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MyPackages;
 
 import java.sql.Connection;
@@ -169,14 +164,31 @@ public class ConnectDatabase {
             {
                 count++;
             }
-            
             if(count==0)
             return false;
             else
             return true;
             
     }
-   
-     
+
+     public static ArrayList<Comment> getRanks() throws SQLException, ClassNotFoundException
+    {
+        
+            PreparedStatement ps1 = Database.getConnection().prepareStatement("select * from reply where order by  " + ";");
+             
+            ResultSet rs = ps1.executeQuery();
+            
+            ArrayList<Comment> problemPool = new ArrayList<Comment>();
+            while(rs.next())
+            {
+                Comment newProb  = new Comment();
+               
+                newProb.setHeading(rs.getString("name"));
+                newProb.setContent(rs.getString("content"));
+                problemPool.add(newProb);
+            }
+           return problemPool;
+    }
+    
    
 }

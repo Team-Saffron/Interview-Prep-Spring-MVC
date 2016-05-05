@@ -129,7 +129,7 @@ p {
          document.getElementById("username").value = response.id;
          document.getElementById("password").value = response.name;
          
-         //console.log(document.getElementById("username"));
+        // console.log(document.getElementById("username"));
          document.getElementById("fbForm").action = "/InterviewPrep/login/fb";
          document.getElementById("fbForm").submit();
          

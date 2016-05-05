@@ -63,11 +63,10 @@
       <h4>${session.username}</h4>
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="\InterviewPrep\dashboard.htm">Home</a></li>
-        <li><a href="#section3">Aptitude</a></li>
         <li><a href="\InterviewPrep\discuss.htm">Discuss</a></li>
-        <li><a href="#section3">Ranking</a></li>
+        <li><a href="\InterviewPrep\ranks.html">Ranking</a></li>
         <li><a href="\InterviewPrep\problems/view.htm">Problems</a></li>
-        <li><a href="\InterviwPrep\problems/add.htm">Add Problem</a></li>
+        <li><a href="/InterviewPrep/problems/add.htm">Add Problem</a></li>
       </ul><br>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search Blog..">
@@ -84,7 +83,7 @@
              <div class="well well-sm"  style="margin-top:3%;">
                  <a href="dashboard.htm">Profile</a>
                  <a href="status.htm" style = "float:right;">Submissions</a>
-                 <a href="account.htm" style = "float:right;margin-right:5px">   Account</a>
+                 <a href="/InterviewPrep/dashboard/editProfile" style = "float:right;margin-right:5px">   Account</a>
              </div>
            
             <div class = "row">

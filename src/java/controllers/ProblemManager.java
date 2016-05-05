@@ -2,10 +2,14 @@ package controllers;
 
 import MyPackages.ConnectDatabase;
 import MyPackages.Problem;
+import com.mchange.io.FileUtils;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +53,29 @@ public class ProblemManager {
         return "problemPage";
     }
     
+    @RequestMapping(value = "problems/view/problemId/{id}/download",method = RequestMethod.GET)
+    public String getInput(@PathVariable("id") int number,ModelMap model) throws SQLException, ClassNotFoundException
+    {
+        model.put("problem",ConnectDatabase.getProblems(number, number).get(0).getInput());
+        return "testing";
+    }
+    
+    @RequestMapping(value = "problems/view/problemId/{id}/output",method = RequestMethod.POST)
+    public String submitOutputFile(@RequestParam("output") String content,@PathVariable("id") int number,ModelMap model) throws SQLException, ClassNotFoundException, IOException
+    {
+        String output = ConnectDatabase.getProblems(number, number).get(0).getOutput();
+        
+       content =  content.replace("\n", "<br />\n");
+        if(content.equals(output))
+            model.put("status","Accepted");
+        else
+            model.put("status","Rejected");
+       
+        model.put("problem",ConnectDatabase.getProblems(number, number).get(0));
+       
+        return "problemPage";
+    }
+    
     private String getProblemHTML(int start,int end) throws SQLException, ClassNotFoundException
     {
         ArrayList<Problem> pool = ConnectDatabase.getProblems(start, end);
@@ -61,4 +88,6 @@ public class ProblemManager {
         
         return HTML;
     }
+    
+    
 }

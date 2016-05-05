@@ -11,38 +11,42 @@
   <script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
   <script src = "test.js"></script>
  
+  <style>
+textarea {
+ background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
+ width: 70%;
+ height: 300px;
+ font: normal 14px verdana;
+ line-height: 25px;
+ padding: 2px 10px;
+ border: solid 1px #ddd;
+}
+</style>
   <script>
-      $(function() {
-  $('textarea[data-editor]').each(function() {
-    var textarea = $(this);
-    var mode = textarea.data('editor');
-    var editDiv = $('<div>', {
-      position: 'absolute',
-      width: textarea.width(),
-      height: textarea.height(),
-      'class': textarea.attr('class')
-    }).insertBefore(textarea);
-    textarea.css('visibility', 'hidden');
-    var editor = ace.edit(editDiv[0]);
-    editor.renderer.setShowGutter(textarea.data('gutter'));
-    editor.getSession().setValue(textarea.val());
-    
-    //editor.getSession().setMode("ace/mode/" + mode);
-    //editor.setTheme("ace/theme/idle_fingers");
-    editor.setTheme("ace/theme/lazy");
-    editor.getSession().setMode("ace/mode/c_cpp");
-    // copy back to textarea on form submit...
-    textarea.closest('form').submit(function() {
-      textarea.val(editor.getSession().getValue());
-    })
-  });
-});
 
+
+
+ function getInput(){
+      document.getElementById("inputForm").action = "/InterviewPrep/problems/view/problemId/"+${problem.id}+"/download";
+      document.getElementById("inputForm").submit();
+ }
+
+ function submitSolution(){
+     
+        var x = document.getElementById("txtArea").value;
+        
+        console.log(x);
+    //    document.getElementById("holder").value = document.getElementById("txtArea").value;
+        document.getElementById("sendOutput").action = "/InterviewPrep/problems/view/problemId/"+${problem.id}+"/output";
+        document.getElementById("sendOutput").submit();
+        
+
+ }
 </script>
 </head>
 
 <body>
-  
+    <p id =" test"/>
   <!--Code for navigation bar-->
      <nav class="navbar navbar-default">
       <div class="container">
@@ -60,14 +64,32 @@
   
   <div class ="container">
        
-        
+      <p style = "color:green;"><b> ${status} </b></p>
+    
         <div class ="row">
             <center><h1>${problem.name}</h1></center>
         </div>
      
+            <div class ="row" style = "margin: 2%;">
+         
+            
+                <form id = "inputForm" method = "GET">
+                <button  onclick = "getInput()" class="btn btn-primary" type="submit" style = "margin:2px;float: right;">Input</button>
+                </form>
+   
+    
+               <button  onclick = "submitSolution()" class="btn btn-primary" type="submit" style = "margin:2px;float:right;">Submit</button>
+            </div>
+            
+             <div class ="row" style = "margin: 2%;">
+                
+                 <form id = "sendOutput" method = "POST">
+                  <textarea name="output"  id ="txtArea" data-editor="cpp" data-gutter="1" rows="15" cols = "150"></textarea>
+                 </form>
+             </div>
 
         <div class ="row" style = "margin-top: 5%;">
-         
+
            
             <div class ="col-md-12">
                 <b><p>${problem.description}</p>
@@ -80,7 +102,7 @@
          
             
             <div class ="col-md-12">
-                <b><p><b>Sample Input: </b>${problem.input}</p>
+                <b><p><b>Sample Input: </b>${problem.samples}</p>
                 </b></div>
             
         </div>
@@ -95,26 +117,9 @@
                 </b></div>
             
         </div>
-        
-        <div class ="row" style = "margin-top: 10%;">
-                        
-          
-            <div class ="col-md-12">
-                <textarea name="my-xml-editor"  data-editor="cpp" data-gutter="1" rows="20" cols = "160%">class practise{
-    public static void main(String args[]){
-        //Write your code here
-    }
-}
-                </textarea>
-            </div>
-            <div class ="col-md-2"></div>
-        </div>
-      
-      <div class ="row"  style = "margin-top: 1%;">
-          <form>
-          <button type="submit" class="btn btn-primary btn-lg" style = "float:right">Submit</button>
-          </form>
-      </div>
+                
+     
+ 
   </div>
   
 </body>
